@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mestre Arena</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: radial-gradient(circle, #1a1a3a, #000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      background: #6c5ce7;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .arena {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🌌 Mestre Ensinador Arena</h1>
+    <p>Entre e participe da batalha</p>
+
+    <button onclick="entrar()">Entrar na Arena ⚔️</button>
+
+    <div class="arena" id="arena">
+      <div class="box">
+        🧑 Jogador 1 vs Jogador 2
+      </div>
+
+      <button onclick="votar('Jogador 1')">Votar Jogador 1</button>
+      <button onclick="votar('Jogador 2')">Votar Jogador 2</button>
+
+      <div class="box" id="resultado">
+        Votos ainda não iniciados
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let votos = {
+      "Jogador 1": 0,
+      "Jogador 2": 0
+    };
+
+    function entrar() {
+      document.getElementById("arena").style.display = "block";
+      alert("🔥 Você entrou na Arena!");
+    }
+
+    function votar(jogador) {
+      votos[jogador]++;
+      
+      document.getElementById("resultado").innerHTML =
+        "Jogador 1: " + votos["Jogador 1"] +
+        "<br>Jogador 2: " + votos["Jogador 2"];
+    }
+  </script>
+
+</body>
+</html>
